@@ -6,7 +6,15 @@ def calcular(x,y,op):
     elif op == 3:
         return(x * y)
     elif op == 4:
-        return(x / y)
+        if y == 0:
+            return "error no se puede dividir por 0)"
+        return x / y
+    elif op == 5:
+        return(x**y)
+    elif op == 6:
+        return(x**0.5)
+    elif op == 7 :
+        return(x/y * 100)
     else:
         return("error operacion invalida")
 
@@ -20,8 +28,8 @@ while on == True:
             num1 = float(input("escriba el primer numero  "))
             num2 = float(input("escriba el segundo numero  "))
             break
-        except: ValueError
-        print("error ingrese solamente numeros")
+        except ValueError:
+            print("error ingrese solamente numeros")
 
     while True:
         print("Menu de operaciones disponibles")
@@ -29,12 +37,16 @@ while on == True:
         print("2 para resta")
         print("3 para multiplicacion")
         print("4 para division")
+        print("5 para Potencias")
+        print("6 para Raiz cuadrada")
+        print("7 para Porcentaje")
+
 
         try:
             op = int(input("escriba operacion deseada  "))
-            if op > 0 and op < 5:
+            if op > 0 and op < 8:
                 resultado = calcular(num1, num2, op)
-                print(f"el resultado es {resultado}")
+                print(f"resultado {resultado:.2f}")
                 break
             else:
                 print("error ingrese un numero de operacion valido")
